@@ -1,5 +1,6 @@
 # Binary Tree
 
+### My Implementation
 ```swift
 class Node {
     
@@ -72,4 +73,9 @@ print(tree.search(4)) // Should be true
 print(tree.search(6)) // Should be false
 // Test printTree
 print(tree.printTree()) // Should be 1-2-4-5-3
+```
+
+### Udacity Implementation
+
+```swift
 ```
