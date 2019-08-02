@@ -1,0 +1,7 @@
+;;; Compute elements of Pascal's triangle via a recursive process
+
+(define (pascal-tri row col)
+  (if (or (= col 0) (= col row))
+      1
+      (+ (pascal-tri (- row 1) (- col 1))
+         (pascal-tri (- row 1) col))))
