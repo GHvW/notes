@@ -10,6 +10,10 @@ function composition<A, B, C>(f1: (x: A) => B, f2: (x: B) => C): (x: A) => C {
     }
 }
 
+function curried_composition<A, B, C>(f1: (x: A) => B): (f2: (x: B) => C) => ((x: A) => C) {
+    return (f2) => (data: A) => f2(f1(data));
+}
+
 // 3. use composition to test identity
 function test(): void {
     const myAge = (age: number) => `I'm ${age} years old.`;
