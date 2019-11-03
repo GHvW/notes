@@ -1,5 +1,4 @@
-pub mod particle;
-pub mod particle_pool;
+pub mod object_pool;
 
 #[cfg(test)]
 mod tests {
