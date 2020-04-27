@@ -1,22 +1,30 @@
-
-#[derive(Clone, Copy)]
-pub struct Particle {
-    frames_left: i64,
+struct ParticleState {
     x: f64,
     y: f64,
     x_vel: f64,
     y_vel: f64
 }
 
+enum FreeParticle {
+    Live(ParticleState),
+    Link(Option<Box<Particle>>)
+}
+
+pub struct Particle {
+    frames_left: i64,
+    state: FreeParticle
+}
+
 impl Particle {
     pub fn new() -> Self {
         Particle {
             frames_left: 0,
-            x: 0.0,
-            y: 0.0,
-            x_vel: 0.0,
-            y_vel: 0.0
+            state: FreeParticle::Link(None)
         }
+    }
+
+    pub fn next(&self) -> Box<Particle> {
+        self.state.next
     }
 
     pub fn init(&mut self, x: f64, y: f64, x_vel: f64, y_vel: f64, lifetime: i64) {
