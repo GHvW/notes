@@ -1,3 +1,4 @@
+```scala
 sealed trait List[+A]	
 case object Nil extends List[Nothing]	
 case class Cons[+A](head: A, tail: List[A]) extends List[A]	
@@ -51,3 +52,4 @@ println(s"tail of first list ${List.tail(l)}")
 println(s"setting head of l results in ${List.setHead(l, "sup")}")
 println(s"dropping 2, l is ${List.drop(l, 2)}")
 println(s"dropping while length less than 3, l is ${List.dropWhile(l, (s: String) => s.length < 3)}")
+```
