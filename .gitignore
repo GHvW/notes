@@ -1,1 +1,9 @@
 .ionide
+.fake
+.metals
+.vs
+.vscode
+
+bin
+obj
+node_modules
