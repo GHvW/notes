@@ -45,11 +45,24 @@ object List {
     case Nil => Nil
     case Cons(x, xs) => if (f(x)) dropWhile(xs, f) else list
   }
+  
+
+  def init[A](list: List[A]): List[A] = list match {
+    case Nil => list
+    case Cons(x, xs) => xs match {
+      case Nil => Nil
+      case _ => Cons(x, init(xs))
+    }
+  }
 }
+
+
+
 
 val l = Cons("hi", Cons("bye", Cons("ok..", Nil)))
 println(s"tail of first list ${List.tail(l)}")
 println(s"setting head of l results in ${List.setHead(l, "sup")}")
 println(s"dropping 2, l is ${List.drop(l, 2)}")
-println(s"dropping while length less than 3, l is ${List.dropWhile(l, (s: String) => s.length < 3)}")
+println(s"dropping while length less than 3, l is ${List.dropWhile(l, (s: String) => s.length() < 3)}")
+println(s"init the list: ${List.init(l)}")
 ```
